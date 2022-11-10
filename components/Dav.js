@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Dav(props) {
-  const { nodes, materials } = useGLTF("/4D EXPOSITOR ESPEJO.gltf");
+  const { nodes, materials } = useGLTF("/6D EXPOSITOR ESPEJO.gltf");
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -60,6 +60,24 @@ export function Dav(props) {
         rotation={[Math.PI / 2, 0, -Math.PI / 2]}
         scale={0.5}
       />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes["TQ3_ARD-geom"].geometry}
+        material={materials.TQ3_ARD_front}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes["TQ3_ARD-geom_1"].geometry}
+        material={materials.TQ3_ARD_back}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes["TQ3_ARD-geom_2"].geometry}
+        material={materials.TQ3_ARD_edge}
+      />
       <group rotation={[-Math.PI / 2, 1.13, -Math.PI / 2]}>
         <mesh
           castShadow
@@ -78,30 +96,6 @@ export function Dav(props) {
           receiveShadow
           geometry={nodes["TQ_ARD-geom001_2"].geometry}
           material={materials["TQ_ARD_edge.001"]}
-        />
-      </group>
-      <group
-        position={[0.02, -0.1, 0.05]}
-        rotation={[-Math.PI / 2, 0.7, Math.PI / 2]}
-        scale={0}
-      >
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes["TQ3_ARD-geom"].geometry}
-          material={materials.TQ3_ARD_front}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes["TQ3_ARD-geom_1"].geometry}
-          material={materials.TQ3_ARD_back}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes["TQ3_ARD-geom_2"].geometry}
-          material={materials.TQ3_ARD_edge}
         />
       </group>
       <mesh
@@ -126,4 +120,4 @@ export function Dav(props) {
   );
 }
 
-useGLTF.preload("/4D EXPOSITOR ESPEJO.gltf");
+useGLTF.preload("/6D EXPOSITOR ESPEJO.gltf");
